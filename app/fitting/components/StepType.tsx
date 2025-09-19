@@ -14,13 +14,19 @@ export default function StepType({ formData, setFormData }) {
   return (
     <div>
       <div>
-          <button value={'driver'} onClick={handleClick}>
+          <button className={formData.type === 'driver' 
+          ? 'buttonType bg-green-500' : 'buttonType'} 
+           value={'driver'} onClick={handleClick}>
             Driver
           </button>
-          <button value={'irons'} onClick={handleClick}>
+          <button className={formData.type === 'irons' 
+          ? 'buttonType bg-green-500' : 'buttonType'} 
+          value={'irons'} onClick={handleClick}>
             irons
           </button>
-          <button value={'wedges'} onClick={handleClick}>
+          <button className={formData.type === 'wedges' 
+          ? 'buttonType bg-green-500' : 'buttonType'} 
+          value={'wedges'} onClick={handleClick}>
             Wedges
           </button>
       </div>
