@@ -33,6 +33,8 @@ export default function Fitting() {
         }
     }
 
+    
+
     const [formData,setFormData] = useState(
           {
             type: null,
@@ -42,7 +44,7 @@ export default function Fitting() {
           }
     ) 
       
-
+    const disableNext = currentStep === 0 && !formData.type;
    
 
   return (
@@ -59,6 +61,7 @@ export default function Fitting() {
         />
 
         <FittingNav 
+        disableNext={disableNext}
         currentStep={currentStep}
         totalSteps={steps.length}
         onNext={goNext}
