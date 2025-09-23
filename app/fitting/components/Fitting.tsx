@@ -40,7 +40,10 @@ export default function Fitting() {
             type: null,
             handicap: null,
             swingSpeed: null,
-            preferences: {}
+            preferences: {},
+            age: null,
+            height: null,
+            hand: null
           }
     ) 
       
