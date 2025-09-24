@@ -3,7 +3,7 @@ import React from 'react'
 //edad,handicap,altura,mano dominante
 
 
-export default function StepPersonal({formData,setFormData}) {
+export default function StepPersonal({formData,setFormData,disableNext}) {
   return (
     <div>
       <h2>Personal information</h2>
@@ -14,7 +14,7 @@ export default function StepPersonal({formData,setFormData}) {
           value={formData.age || ""}
           onChange={ (event) => setFormData({
           ...formData,
-          age: event.target.value
+          age: Number(event.target.value)
         })} />
       </div>
 
@@ -24,7 +24,7 @@ export default function StepPersonal({formData,setFormData}) {
         value={formData.handicap || ""}
         onChange={(event) => setFormData({
           ...formData,
-          handicap: event.target.value
+          handicap: Number(event.target.value)
         })}/>
       </div>
 
@@ -34,7 +34,7 @@ export default function StepPersonal({formData,setFormData}) {
         value={formData.height || ""} 
         onChange={(event) => setFormData({
           ...formData,
-          height:event.target.value
+          height: Number(event.target.value)
         })}/>
       </div>
 

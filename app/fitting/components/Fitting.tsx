@@ -47,7 +47,14 @@ export default function Fitting() {
           }
     ) 
       
-    const disableNext = currentStep === 0 && !formData.type;
+    const disableNext = 
+    (currentStep === 0 && !formData.type) ||
+    (currentStep === 1 && (
+    !formData.age ||
+    !formData.handicap ||
+    !formData.height ||
+    !formData.hand
+    ));
    
 
   return (
