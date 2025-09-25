@@ -39,8 +39,11 @@ export default function Fitting() {
           {
             type: null,
             handicap: null,
-            swingSpeed: null,
-            preferences: {},
+            driverDistance: null,
+            iron7Distance:null,
+            wedgeDistance:null,
+            swingSpeed:null,
+            flight: null,
             age: null,
             height: null,
             hand: null
@@ -54,6 +57,20 @@ export default function Fitting() {
     !formData.handicap ||
     !formData.height ||
     !formData.hand
+    )) || 
+    (currentStep === 2 && (
+      (formData.type === "driver" && (
+        !formData.driverDistance ||
+        !formData.flight 
+      )) ||
+      (formData.type === "irons" && (
+        !formData.iron7Distance ||
+        !formData.flight
+      )) ||
+      (formData.type === "wedges" && (
+        !formData.wedgeDistance ||
+        !formData.flight
+      ))
     ));
    
 
