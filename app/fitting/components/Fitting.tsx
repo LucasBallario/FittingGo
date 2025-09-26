@@ -46,7 +46,13 @@ export default function Fitting() {
             flight: null,
             age: null,
             height: null,
-            hand: null
+            hand: null,
+            preferences: {
+            brands: [],
+            performancePriority: null,
+            budget: null
+
+            }
           }
     ) 
       
