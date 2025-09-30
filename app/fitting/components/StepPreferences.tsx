@@ -1,6 +1,18 @@
 import React from 'react'
 
 export default function StepPreferences({formData,setFormData}) {
+  const brandList = [
+    "Taylormade",
+    "Titleist",
+    "Callaway",
+    "Ping",
+    "Cobra",
+    "Mizuno",
+    "Wilson",
+    "PXG",
+    "Srixon"
+  ]
+
   return (
     <div className='flex flex-col gap-6'>
       <h2>Preferences</h2>
@@ -8,175 +20,38 @@ export default function StepPreferences({formData,setFormData}) {
 
       <div className='grid grid-cols-2 gap-4'>
 
-      <label>
-        <input type='checkbox' value='Taylormade'
-        checked={formData.preferences.brands?.includes("Taylormade")}
-        onChange={(e) => {
-          const checked = e.target.checked
-          const value = e.target.value
+    {brandList.map((brand) => (
+      <label key={brand}>
+          <input
+              type="checkbox"
+              value={brand}
+              checked={formData.preferences.brands?.includes(brand)}
+              onChange={(e) => {
+                const checked = e.target.checked;
+                const value = e.target.value;
 
-          setFormData({
-            ...formData,
-            preferences: {
-              ...formData.preferences,
-              brands: checked ? [...(formData.preferences.brands || []), value] : formData.preferences.brands.filter((b) => b !== value) 
-            }
-          })
-        }}
-        />
-        Taylormade
+                setFormData({
+                  ...formData,
+                  preferences: {
+                    ...formData.preferences,
+                    brands: checked
+                      ? [...(formData.preferences.brands || []), value]
+                      : formData.preferences.brands.filter((b) => b !== value),
+                  },
+                });
+              }}
+            />
+            {brand}
       </label>
+    ))}
+
       
 
-      <label>
-        <input type='checkbox' value='Titleist' 
-        checked={formData.preferences.brands?.includes("Titleist")} 
-        onChange={(e) => {
-          const checked = e.target.checked
-          const value = e.target.value
+     
 
-          setFormData({ 
-            ...formData,
-            preferences: {
-              ...formData.preferences,
-              brands: checked ? [...(formData.preferences.brands || []), value] : formData.preferences.brands.filter((b) => b !== value) 
-            }
-        })
-
-        }}/>
-        Titleist
-      </label>
       
-
-      <label>
-        <input type='checkbox' value='Callaway'
-        checked={formData.preferences.brands?.includes("Callaway")} 
-        onChange={(e) => {
-          const checked = e.target.checked
-          const value = e.target.value
-
-          setFormData({
-            ...formData,
-            preferences: {
-              ...formData.preferences,
-              brands: checked ? [...(formData.preferences.brands || []), value] : formData.preferences.brands.filter((b) => b !== value) 
-            }
-          })
-        }}   />
-        Callaway
-      </label>
+       
       
-
-      <label>
-       <input type='checkbox' value='Ping' 
-       checked={formData.preferences.brands?.includes("Ping")} 
-       onChange={(e) => {
-        const checked = e.target.checked
-        const value = e.target.value
-
-        setFormData({
-          ...formData,
-          preferences: {
-            ...formData.preferences,
-            brands: checked ? [...(formData.preferences.brands || []), value] : formData.preferences.brands.filter((b) => b !== value) 
-          }
-        })
-       }} />
-        Ping
-      </label>
-
-      <label>
-        <input type='checkbox' value='Cobra' 
-       checked={formData.preferences.brands?.includes("Cobra")} 
-       onChange={(e) => {
-        const checked = e.target.checked
-        const value = e.target.value
-
-        setFormData({
-          ...formData,
-          preferences: {
-            ...formData.preferences,
-            brands: checked ? [...(formData.preferences.brands || []), value] : formData.preferences.brands.filter((b) => b !== value) 
-          }
-        })
-       }}    />
-        Cobra
-      </label>
-      
-
-      <label>
-        <input type='checkbox' value='Mizuno' 
-       checked={formData.preferences.brands?.includes("Mizuno")} 
-       onChange={(e) => {
-        const checked = e.target.checked
-        const value = e.target.value
-
-        setFormData({
-          ...formData,
-          preferences: {
-            ...formData.preferences,
-            brands: checked ? [...(formData.preferences.brands || []), value] : formData.preferences.brands.filter((b) => b !== value) 
-          }
-        })
-       }}    />
-        Mizuno
-        </label>
-      
-
-      <label>
-        <input type='checkbox' value='Wilson' 
-       checked={formData.preferences.brands?.includes("Wilson")} 
-       onChange={(e) => {
-        const checked = e.target.checked
-        const value = e.target.value
-
-        setFormData({
-          ...formData,
-          preferences: {
-            ...formData.preferences,
-            brands: checked ? [...(formData.preferences.brands || []), value] : formData.preferences.brands.filter((b) => b !== value) 
-          }
-        })
-       }}   />
-        Wilson
-        </label>
-      
-
-      <label>
-        <input type='checkbox' value='PXG' 
-       checked={formData.preferences.brands?.includes("PXG")} 
-       onChange={(e) => {
-        const checked = e.target.checked
-        const value = e.target.value
-
-        setFormData({
-          ...formData,
-          preferences: {
-            ...formData.preferences,
-            brands: checked ? [...(formData.preferences.brands || []), value] : formData.preferences.brands.filter((b) => b !== value) 
-          }
-        })
-       }}   />
-        PXG
-        </label>
-      
-      <label>
-        <input type='checkbox' value='Srixon' 
-       checked={formData.preferences.brands?.includes("Srixon")} 
-       onChange={(e) => {
-        const checked = e.target.checked
-        const value = e.target.value
-
-        setFormData({
-          ...formData,
-          preferences: {
-            ...formData.preferences,
-            brands: checked ? [...(formData.preferences.brands || []), value] : formData.preferences.brands.filter((b) => b !== value) 
-          }
-        })
-       }}  />
-        Srixon
-        </label>
       
 
       </div>
@@ -184,8 +59,8 @@ export default function StepPreferences({formData,setFormData}) {
       <div className='flex gap-6'>
         <p>What matters most to you?</p>
 
-        <label>Distance</label>
-        <input type='radio' name='priority' value='distance'
+        <label>
+          <input type='radio' name='priority' value='distance'
         checked={formData.preferences.priority === "distance"}
         onChange={(e) => 
           setFormData({
@@ -196,9 +71,12 @@ export default function StepPreferences({formData,setFormData}) {
             }
           
         })} />
+          Distance
+          </label>
+        
 
-        <label>Forgiveness</label>
-        <input type='radio' name='priority' value='forgiveness'
+        <label>
+          <input type='radio' name='priority' value='forgiveness'
         checked={formData.preferences.priority === "forgiveness"}
         onChange={(e) => 
           setFormData({
@@ -210,9 +88,12 @@ export default function StepPreferences({formData,setFormData}) {
           })
           
         } />
+          Forgiveness
+          </label>
+        
 
-        <label>Workability</label>
-        <input type='radio' name='priority' value='workability' 
+        <label>
+          <input type='radio' name='priority' value='workability' 
         checked={formData.preferences.priority === 'workability'} 
         onChange={(e) => 
           setFormData({
@@ -223,6 +104,9 @@ export default function StepPreferences({formData,setFormData}) {
             }
           })
         }/>
+          Workability
+          </label>
+        
       </div>
 
       <div>
