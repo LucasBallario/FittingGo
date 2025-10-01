@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function FittingNav({disableNext, onNext,onBack, currentStep,totalSteps}) {
   return (
-    <div>
+    <div className='m-6'>
 
       <button className={
           currentStep === 0
