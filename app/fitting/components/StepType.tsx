@@ -1,34 +1,31 @@
-import React from 'react'
+"use client"
 
 export default function StepType({ formData, setFormData }) {
-
- const handleClick = (event) => {
-  setFormData({
-     ...formData,
-    type: event.target.value
- })
-   
-    
- }
+  const handleClick = (event) => {
+    setFormData({
+      ...formData,
+      type: event.target.value,
+    })
+  }
 
   return (
-    <div className="w-full max-w-3xl mx-auto space-y-8">
+    <div className="w-full max-w-3xl mx-auto space-y-12 pt-20">
       <div className="space-y-2 text-center">
-        <h2 className="text-3xl font-bold text-foreground">Select Club Type</h2>
+        <h2 className="text-3xl font-bold text-foreground ">Select Club Type</h2>
         <p className="text-muted-foreground">Choose the type of club you are looking to fit</p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6">
         <button
-          className={`group relative p-8 rounded-xl border-2 transition-all ${
+          className={`group relative p-8 rounded-xl transition-all  ${
             formData.type === "driver"
-              ? "border-primary bg-primary/10 shadow-lg shadow-primary/20"
-              : "border-border bg-card hover:border-primary/50 hover:shadow-md"
+              ? "border-[3px] border-primary bg-primary/30 shadow-xl shadow-primary/30"
+              : "border-2 border-border bg-card hover:border-primary/50 hover:shadow-md"
           }`}
           value={"driver"}
           onClick={handleClick}
         >
-          <div className="space-y-4">
+          <div className="space-y-4 cursor-pointer">
             <div className="space-y-1">
               <h3 className="text-xl font-bold text-foreground">Driver</h3>
             </div>
@@ -43,10 +40,10 @@ export default function StepType({ formData, setFormData }) {
         </button>
 
         <button
-          className={`group relative p-8 rounded-xl border-2 transition-all ${
+          className={`group relative p-8 rounded-xl transition-all ${
             formData.type === "irons"
-              ? "border-primary bg-primary/10 shadow-lg shadow-primary/20"
-              : "border-border bg-card hover:border-primary/50 hover:shadow-md"
+              ? "border-[3px] border-primary bg-primary/30 shadow-xl shadow-primary/30"
+              : "border-2 border-border bg-card hover:border-primary/50 hover:shadow-md"
           }`}
           value={"irons"}
           onClick={handleClick}
@@ -66,10 +63,10 @@ export default function StepType({ formData, setFormData }) {
         </button>
 
         <button
-          className={`group relative p-8 rounded-xl border-2 transition-all ${
+          className={`group relative p-8 rounded-xl transition-all ${
             formData.type === "wedges"
-              ? "border-primary bg-primary/10 shadow-lg shadow-primary/20"
-              : "border-border bg-card hover:border-primary/50 hover:shadow-md"
+              ? "border-[3px] border-primary bg-primary/30 shadow-xl shadow-primary/30"
+              : "border-2 border-border bg-card hover:border-primary/50 hover:shadow-md"
           }`}
           value={"wedges"}
           onClick={handleClick}
@@ -90,5 +87,4 @@ export default function StepType({ formData, setFormData }) {
       </div>
     </div>
   )
-  
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import Brands from './Brands'
+import Link from 'next/link'
 export default function banner() {
   const benefits = [
     {
@@ -39,12 +40,18 @@ export default function banner() {
 
      
       <div className="mt-8 flex justify-center gap-4">
+        <Link href='/fitting'>
         <button className="px-6 py-4 rounded-xl bg-green-700 text-white cursor-pointer hover:opacity-80">
           Start your fitting
         </button>
+        </Link>
+        
+        <Link href='/info'>
         <button className="px-6 py-4 rounded-xl border border-slate-300 cursor-pointer hover:opacity-80">
           How it works
         </button>
+        </Link>
+        
       </div>
     </div>
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function FittingNav({disableNext, onNext,onBack, currentStep,totalSteps}) {
   return (
-    <div className='m-6'>
+    <div className=' flex m-6 gap-x-4 text-center justify-center '>
 
       <button className={
           currentStep === 0
